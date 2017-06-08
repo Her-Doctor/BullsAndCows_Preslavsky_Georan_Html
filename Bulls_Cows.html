@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<!-- javascript fait plus charger à la connexion-->
+	<head>
+			<meta charset="utf-8"/>
+			<title>Bulls and Cows</title>
+		</head>
+		
+		<body>
+				<!--corps de la page-->
+				
+				<h1>Bulls and Cows</h1>
+				<link rel="stylesheet" type="text/css" href="styleBC.css">
+
+				<h2>Objectif :</h2>
+				<P>Bulls and Cows équivaut au MasterMind .</P><br />
+				<P>Trouvez les 4 chiffres dans le bon ordre , vous avez un nombre d'éssais limité .</P><br />
+
+				<select id="Choix1">
+					<option value=1> 1 </option>
+					<option value=2> 2 </option>
+					<option value=3> 3 </option>
+					<option value=4> 4 </option>
+					<option value=5> 5 </option>
+					<option value=6> 6 </option>
+					<option value=7> 7 </option>
+					<option value=8> 8 </option>
+					<option value=9> 9 </option>
+				</select> <br />
+
+				<select id="Choix2">
+					<option value=1> 1 </option>
+					<option value=2> 2 </option>
+					<option value=3> 3 </option>
+					<option value=4> 4 </option>
+					<option value=5> 5 </option>
+					<option value=6> 6 </option>
+					<option value=7> 7 </option>
+					<option value=8> 8 </option>
+					<option value=9> 9 </option>
+				</select> <br />
+
+				<select id="Choix3">
+					<option value=1> 1 </option>
+					<option value=2> 2 </option>
+					<option value=3> 3 </option>
+					<option value=4> 4 </option>
+					<option value=5> 5 </option>
+					<option value=6> 6 </option>
+					<option value=7> 7 </option>
+					<option value=8> 8 </option>
+					<option value=9> 9 </option>
+				</select> <br />
+
+				<select id="Choix4">
+					<option value=1> 1 </option>
+					<option value=2> 2 </option>
+					<option value=3> 3 </option>
+					<option value=4> 4 </option>
+					<option value=5> 5 </option>
+					<option value=6> 6 </option>
+					<option value=7> 7 </option>
+					<option value=8> 8 </option>
+					<option value=9> 9 </option>
+				</select> <br /><br />
+
+				<input type="text" name="Bullstxt" />
+				<input type="text" name="Cowstxt" /> <br /> <br />
+
+				<script type="text/javascript">
+
+					var Bulls = 0;	// var bulls qui donne les bulls
+					var Cows = 0;	// var cows qui donne les cows	
+					var cpt = 10;   // compteur qui va donner le nombre d'essais
+					var res1 = 0;
+					var res2 = 0;
+					var res3 = 0;	// les var Res sont les var resulats des 4 chiffres randoms
+					var res4 = 0;
+					var Choix_poss = [1,2,3,4,5,6,7,8,9]; // type énuméré entre 1 et 9
+					var Restarted = getElementById('Restart');
+					var Check = getElementById('Entrer');
+					var Bullstext = getElementById('Bullstxt');
+					var Cowstext = getElementById('Cowstxt');
+
+					function init() // fonction init
+						{
+							Restarted.visible == false ; // boutton restart
+						}
+
+					function Restart()
+						{
+							cpt == 10;
+							Check.visible == true;
+							Restarted.visible == false;
+							random_nombre();
+						}
+
+					function affiche()
+					//fonction qui va afficher les bulls and cows
+						{
+							Bullstext == 'Bulls : ' + Bulls;
+							Cowstext == 'Cows : ' + Cows;	
+						}
+
+					function random_nombre()
+						// fonction qui va randomiser les nombres
+						//[Variable des choix possibles].splice([Résultat du random],1);  pour enlever le choix random 
+						{
+							res1 == Math.floor(Math.random() * 9) + 1;  // donne un nombre entre 1 et 9
+
+								Choix_poss.splice(res1,1); //pour enlever le choix random
+
+							do  // tantque le res 2 n'est pas egal aux choix poss. alors on boucle 
+								{
+									res2 == Math.floor(Math.random() * 9) + 1;
+								}
+							while (res2 !== Choix_poss);
+
+								Choix_poss.splice(res2,1); //pour enlever le choix random
+
+							do 
+								{
+									res3 == Math.floor(Math.random() * 9) + 1;
+								}
+							while (res3 !== Choix_poss);
+
+								Choix_poss.splice(res3,1); //pour enlever le choix random
+
+							do 
+								{
+									res4 == Math.floor(Math.random() * 9) + 1;
+								}
+							while (res4 !== Choix_poss);
+
+								Choix_poss.splice(res4,1); //pour enlever le choix random
+						}
+
+
+					function Test()
+						// fonction qui va verifier les choix
+						{
+							var Choix1 = document.getElementById('Choix1').value;
+							var Choix2 = document.getElementById('Choix2').value;
+							var Choix3 = document.getElementById('Choix3').value;
+							var Choix4 = document.getElementById('Choix4').value;
+								Bulls == 0;
+								Cows == 0;
+							if (Choix1 == nb1) 
+							{
+								Bulls ++;
+							}
+
+							if (Choix1 == nb2;Choix1 == nb3;Choix1 == nb4)
+							{
+								Cows ++;
+							}
+
+							if (Choix2 == nb2) 
+							{
+								Bulls ++;
+							}
+
+							if (Choix2 == nb1;Choix2 == nb3;Choix2 == nb4)
+							{
+								Cows ++;
+							}
+
+							if (Choix3 == nb3) 
+							{
+								Bulls ++;
+							}
+
+							if (Choix3 == nb1;Choix3 == nb2;Choix3 == nb4)
+							{
+								Cows ++;
+							}
+
+							if (Choix4 == nb4) 
+							{
+								Bulls ++;
+							}
+
+							if (Choix4 == nb1;Choix4 == nb3;Choix4 == nb2)
+							{
+								Cows ++;
+							}
+
+							
+							cpt -- ; // compteur d'essais
+							if (cpt == 0) // si le compteur est égal a 0 alors
+							{
+								alert ("Vous avez Perdu !"); // message
+								Check.visible == false ; // bouton , rendu invisible pour eviter de continuer
+								Restarted.visible == true ; // boutton recommencer
+							}
+
+							affiche();
+						}
+
+					random_nombre();
+					console.log('nombre Résultat : ');
+					console.log(res1);
+					console.log(res2);
+					console.log(res3); // console log , permettent de voir le nombre random
+					console.log(res4);
+	      		</script>
+
+				<input type="button" name="Entrer" value="Entrer" onclick="Test();"/> <br />
+				<input type="button" name="Restart" value="Recommencer" onclick="Restart();"/> <br />
+
+				<noscript>
+					 alert ("le javascript est pas la ;^; ....");
+				</noscript>
+
+      
+
+			<footer>Copyright Ludus</footer>
+		</body>
+
+</html>
