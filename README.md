@@ -1,0 +1,3 @@
+# BullsAndCows_Preslavsky_Georan_Html
+
+ATTENTION ne fonctionne pas , pas eu le temps de terminer pour raisons personnelles , veuillez me pardonner ...
